@@ -34,8 +34,8 @@
 .bor-rad{
   border-radius: 0 !important;
 }
-.slds-input {
-  border-radius: 0 !important;
+.bor-rad .slds-input:focus{
+  border-color: black;
 }
 .label-heading {
   color: black;
@@ -81,3 +81,20 @@ tr {
   margin-top: 0.25rem;
   padding-right: 1.25rem;
 }
+.slds-input {
+  border-radius: 0 !important;
+}
+.slds-input:focus{
+  /* border:none; */
+  box-shadow: none;
+}
+.table-input .slds-input{
+  border:none;
+  padding: 0;
+}
+.table-input .slds-input:focus{
+  border:none;
+  box-shadow: none;
+}
+
+

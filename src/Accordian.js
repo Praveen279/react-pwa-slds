@@ -6,10 +6,28 @@ import { IconSettings } from '@salesforce/design-system-react';
 
 
 const AccordianExample = () => {
-    const items = () => {
-        return <div>
+    
+    const [edit,setEdit] = React.useState(false)
 
-        </div>
+    const [temp,setTemp] = React.useState({})
+
+    const [tableDetail,setTableDetails] = React.useState({
+                date: '17/05/2023',
+                callReceived: "7.55",
+                enRoute: "7.55",
+                arrivedAtScene: "7.55",
+                arrivedAtPatient: "7.55",
+                departScene: "7.55",
+                atDestination: "7.55",
+    })
+
+    const onTableChange = (event) =>{
+        
+        if(Object.keys(temp).values.length === 0){
+            setTemp({...tableDetail,[event.target.name]:event.target.value})
+        } else {
+            setTemp({...temp,[event.target.name]:event.target.value})
+        }
     }
 
     const getTable = () => {
@@ -17,13 +35,13 @@ const AccordianExample = () => {
             {
                 id: 3,
                 date: '17/05/2023',
-                callReceived: '7.04',
-                enRoute: '7.05',
-                arrivedAtScene: '7.15',
-                arrivedAtPatient: '7.16',
-                departScene: '7.35',
-                atDestination: '7.45',
-            },
+                callReceived: <Input className="table-input" name="callReceived" onChange={(event)=>onTableChange(event)} value={edit? temp?.callReceived : tableDetail.callReceived} />,
+                enRoute: <Input className="table-input" name="enRoute" onChange={(event)=>onTableChange(event)} value={edit ? temp?.enRoute :tableDetail.enRoute}/>,
+                arrivedAtScene: <Input className="table-input" name="arrivedAtScene" onChange={(event)=>onTableChange(event)} value={edit ? temp?.arrivedAtScene :tableDetail.arrivedAtScene}/> ,
+                arrivedAtPatient: <Input className="table-input" name="arrivedAtPatient" onChange={(event)=>onTableChange(event)} value={edit ? temp?.arrivedAtPatient :tableDetail.arrivedAtPatient}/>,
+                departScene: <Input className="table-input" name="departScene" onChange={(event)=>onTableChange(event)} value={edit ? temp?.departScene : tableDetail.departScene}/> ,
+                atDestination:  <Input className="table-input" name="atDestination" onChange={(event)=>onTableChange(event)} value={edit ? temp?.atDestination:tableDetail.atDestination}/>,
+            }
         ]
 
         const columns = [
@@ -33,7 +51,7 @@ const AccordianExample = () => {
                     <div style={{ fontSize: '.65rem' }}>{"Date"}<span style={{ color: 'red' }}>{'*'}</span></div>
                     <div style={{ fontSize: '.65rem' }}>{"(DD/MM/YYYY)"}</div>
                 </div>}
-                property="Date"
+                property="date"
             />,
 
             <DataTableColumn
@@ -94,6 +112,7 @@ const AccordianExample = () => {
                                 id="assistiveLabel-id"
                                 placeholder="My placeholder"
                                 className="bor-rad"
+                                
                             />
                         </div>
                         <div className="w-50">
@@ -165,10 +184,35 @@ const AccordianExample = () => {
                     <div className="w-70 edit-section">
                             
 
-                            <Button
+                            {!edit ? <Button
                                 className="btn"
                                 label="Update Times"
-                            />
+                                onClick={()=>{
+                                    setEdit(!edit)
+                                    setTemp({...tableDetail})
+                                }
+                            }
+                            />:<div>
+                                <Button
+                            className="btn"
+                            label="Cancel"
+                            onClick={()=>{
+                                setEdit(!edit)
+                                setTemp({})
+                            }
+                            }
+                        />
+                        <Button
+                            className="btn"
+                            label="Save"
+                            onClick={()=>{
+                                setEdit(!edit)
+                                setTableDetails({...temp})
+                                setTemp({})
+                            }
+                        }
+                        />
+                                </div>}
                             </div>
                       
                     </div>
