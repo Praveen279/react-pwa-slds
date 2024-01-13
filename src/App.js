@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button } from '@salesforce/design-system-react'
+import AccordianExample  from './Accordian'
 import './App.css';
 
 function App() {
+  
   return (
     <div className="App">
-      <Button label="Hello Button" />
+      <AccordianExample />
     </div>
   );
 }

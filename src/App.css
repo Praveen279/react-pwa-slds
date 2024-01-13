@@ -1,4 +1,100 @@
 .App {
-  text-align: center;
+  background-color: white;
+
   margin-top: 40px;
 }
+.line {
+  border: 1px solid black
+}
+.m-t-b{
+  margin: .5rem 0 .5rem 0;
+}
+.w-100{
+  width: 100vw;
+}
+.w-20{
+  padding: 0 .25rem 0 .25rem;
+  width: 20vw;
+}
+.w-50{
+  padding: 0 .25rem 0 .25rem;
+  width: 50vw
+}
+.w-30{
+  padding: 0 .25rem 0 .25rem;
+  width: 30vw;
+}
+.w-70{
+  padding: 0 .25rem 0 .25rem;
+  width: 70vw;
+}
+.section-1{
+  background-color: white;
+}
+.bor-rad{
+  border-radius: 0 !important;
+}
+.bor-rad .slds-input:focus{
+  border-color: black;
+}
+.label-heading {
+  color: black;
+  font-size: .65rem;
+}
+
+.m-t-1{
+  margin-top: 1rem;
+}
+
+element.style {
+}
+.slds-table tbody tr {
+    counter-increment: row-number;
+}
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.slds-table td, .slds-table th {
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+  position: relative;
+  border: 0.5px solid;
+  text-align: center;
+}
+.p-l-125{
+  padding-right: 1.25rem;
+}
+.btn{
+  border-radius: 3px;
+  color: black;
+}
+.edit-section{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+  padding-right: 1.25rem;
+}
+.slds-input {
+  border-radius: 0 !important;
+}
+.slds-input:focus{
+  /* border:none; */
+  box-shadow: none;
+}
+.table-input .slds-input{
+  border:none;
+  padding: 0;
+}
+.table-input .slds-input:focus{
+  border:none;
+  box-shadow: none;
+}
+
+
